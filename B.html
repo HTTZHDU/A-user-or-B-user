@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>B page</title>
+</head>
+<link rel="stylesheet" type="text/css" href="A.css" id="css">
+<body>
+	<div class="user_name" id="userb" style="display: none;"><a class="userb">B user</a></div>
+	<div class="user_name" id="usera"><a class="usera">A user</a></div>
+	<div class="sys_dis" id="sys_disp">
+		<div>补充内容1</div>
+		<div>补充内容2</div>
+		<div class="sys">系统1</div>
+		<div class="sys">系统2</div>
+		<div class="sys">系统3</div>
+		<div>补充内容3</div>
+		<div class="sys" id="sys_b1">系统4</div>
+		<div class="sys" id="sys_b2">系统5</div>
+		<div class="bpart1" id="insert1">补充内容4</div>
+		<div class="bpart2">补充内容5</div>
+		<div class="bpart3">补充内容6</div>
+		<div class="bpart4">补充内容7</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function(){
+    	var usera = document.getElementById("usera");
+    	var userb = document.getElementById("userb");
+    	var css = document.getElementById("css");
+    	var sys_b1 = document.getElementById("sys_b1");
+    	var sys_b2 = document.getElementById("sys_b2");
+    	var insert1 = document.getElementById("insert1");
+    	//显示B界面
+    	usera.addEventListener('click',function(){
+    		userb.style.display = "block";
+    		usera.style.display = "none";
+    		document.getElementById("sys_disp").removeChild(sys_b1);
+    		document.getElementById("sys_disp").removeChild(sys_b2);
+    		css.setAttribute("href","B.css"); 
+    	});
+    	//显示A界面
+    	userb.addEventListener('click',function(){
+    		usera.style.display="block";
+    		userb.style.display="none";
+    		css.setAttribute("href","A.css"); 
+    		document.getElementById("sys_disp").insertBefore(sys_b2,insert1);
+    		document.getElementById("sys_disp").insertBefore(sys_b1,sys_b2);
+    	})
+    }
+
+</script>
+</html>
